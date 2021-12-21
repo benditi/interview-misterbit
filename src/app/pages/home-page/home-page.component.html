@@ -1,1 +1,8 @@
-<p>home-page works!</p>
+<section class="home-page">
+    <form (ngSubmit)="onSubmit()">
+        <input type="text" [(ngModel)]="cityName" name="cityName" id="cityName">
+        <button>Submit</button>
+    </form>
+    <city-name *ngFor="let city of optionalCities;" [city]="city" (selectCity)="onFindWeather($event)"></city-name>
+    <daily-forecast *ngFor="let forecast of fiveDaysForecasts;" [forecast]="forecast"></daily-forecast>
+</section>

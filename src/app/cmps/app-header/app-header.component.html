@@ -4,9 +4,7 @@
     <nav [ngClass]="{'menu-open': isNavOn}" >
         <h1 *ngIf="isNavOn"> Mister Bitcoin</h1>
         <a (click)="onClickLink('')">Home Page</a>
-        <a (click)="onClickLink('contact')">Contacts</a>
-        <a (click)="onClickLink('charts')">Chart</a>
-        <a *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>
+        <a (click)="onClickLink('contact')">Favorites</a>
     </nav>
     <button class="btn-menu-toggle" [ngClass]="{'menu-open': isNavOn}" (click)=toggleMenu()>☰</button>
 </div>
