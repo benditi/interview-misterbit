@@ -1,0 +1,17 @@
+@import '../../../assets/scss/functions';
+@import '../../../assets/scss/helpers';
+
+.city-favorite{
+    .city-name{
+        font-size: rem(20px);
+        margin-bottom: rem(15px);
+        button{
+            visibility: hidden;
+        }
+        &:hover{
+            button{
+                visibility: unset;
+            }
+        }
+    }
+}

@@ -9,6 +9,8 @@ import { AppHeaderComponent } from './cmps/app-header/app-header.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CityNameComponent } from './cmps/city-name/city-name.component';
 import { DailyForecastComponent } from './cmps/daily-forecast/daily-forecast.component';
+import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
+import { CityFavoriteComponent } from './cmps/city-favorite/city-favorite.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { DailyForecastComponent } from './cmps/daily-forecast/daily-forecast.com
     AppHeaderComponent,
     HomePageComponent,
     CityNameComponent,
-    DailyForecastComponent
+    DailyForecastComponent,
+    FavoritesPageComponent,
+    CityFavoriteComponent
   ],
   imports: [
     BrowserModule,

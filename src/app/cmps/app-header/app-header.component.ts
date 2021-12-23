@@ -15,19 +15,10 @@ export class AppHeaderComponent implements OnInit {
   subscription: Subscription
   constructor(private router: Router) { }
 
-  async ngOnInit(): Promise<void> {
-    // const loggedInUser = await this.userService.getLoggedInUser()
-    // if (loggedInUser) {
-    //   this.userService.saveIsLoggedIn(true)
-    // }
-    // this.subscription = this.userService.isLoggedIn$.subscribe(isLoggedIn => {
-    //   this.isLoggedIn = isLoggedIn[0]
-    // })
+  async ngOnInit() {
   }
   toggleMenu() {
     this.isNavOn = !this.isNavOn;
-    console.log('inside toggle');
-
   }
   onClickLink(path: string) {
     if (this.isNavOn) this.isNavOn = !this.isNavOn;
@@ -36,10 +27,5 @@ export class AppHeaderComponent implements OnInit {
 
   onClickHeader() {
     this.router.navigateByUrl('');
-  }
-  onLogout() {
-    if (this.isNavOn) this.isNavOn = !this.isNavOn;
-    this.onSelect.emit()
-    // this.userService.saveIsLoggedIn(false)
   }
 }

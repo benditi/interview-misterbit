@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CityObject } from 'src/app/models/cityObject.model';
 
 @Component({
   selector: 'city-name',
@@ -6,14 +7,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./city-name.component.scss']
 })
 export class CityNameComponent implements OnInit {
- @Input() city:any
- @Output() selectCity = new EventEmitter<string>()
+  @Input() city: any
+  @Output() selectCity = new EventEmitter<CityObject>()
   constructor() { }
 
   ngOnInit(): void {
   }
-  onSelectCity(key:string){
-    console.log('emitting key:', key);
-    this.selectCity.emit(key)  
+  onSelectCity(name: string, key: string) {
+    this.selectCity.emit({ name, key })
   }
 }

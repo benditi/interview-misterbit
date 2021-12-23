@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 /* Application-wide Styles */
 @import './assets/scss/typography';
-body, html{
-    // width: 100%;
-    margin: 0;
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    margin: 0 20px;
+    background: url('./assets/imgs/sea.jpg') no-repeat center center fixed;
+    background-size: cover;   
 }

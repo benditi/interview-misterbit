@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CityObject } from 'src/app/models/cityObject.model';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -10,6 +11,8 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class HomePageComponent implements OnInit {
   cityName: string = ''
+  selectedCity: string = ''
+  isFavorite: boolean
   cities$: Observable<any>
   forecast$: Observable<any>
   optionalCities: Array<any> = []
@@ -20,29 +23,28 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
   async onSubmit() {
-    console.log('submit!');
+    this.fiveDaysForecasts = []
+    this.isFavorite = false
     this.optionalCities = []
     this.cities$ = await this.locationService.getCityAutocomplete(this.cityName)
-    console.log(this.cities$);
     this.cities$.subscribe(cities => {
       cities.forEach((city: any) => {
-        console.log(city);
         this.optionalCities.push(city)
       });
-      localStorage.setItem('cities', JSON.stringify(this.optionalCities))
     })
-
   }
 
-  async onFindWeather(cityKey: string) {
-    // if (localStorage.getItem('forecast')) {
-    //   this.fiveDaysForecasts = JSON.parse(localStorage.getItem('forecast'))
-    // }
-    this.forecast$ = await this.weatherService.findWeather(cityKey)
+  async onFindWeather(cityObject: CityObject) {
+    this.forecast$ = await this.weatherService.findWeather(cityObject.key)
     this.forecast$.subscribe((forecast: any) => {
-      console.log(forecast.DailyForecasts);
       this.fiveDaysForecasts = forecast.DailyForecasts
-      localStorage.setItem('forecast', JSON.stringify(this.fiveDaysForecasts))
     })
+    this.selectedCity = cityObject.name
+    this.isFavorite = this.locationService.checkIfFavorite(this.selectedCity)
+  }
+
+  onAddFavorites() {
+    this.locationService.addToFavorites(this.selectedCity)
+    this.isFavorite = true
   }
 }

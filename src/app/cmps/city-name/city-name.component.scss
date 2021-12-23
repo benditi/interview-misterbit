@@ -1,0 +1,9 @@
+@import '../../../assets/scss/helpers';
+
+.city-name{
+    button{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

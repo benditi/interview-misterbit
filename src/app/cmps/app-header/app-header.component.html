@@ -2,9 +2,9 @@
     <div class="screen" [ngClass]="{'menu-open': isNavOn}" (click)=toggleMenu()></div>
     <h1 (click)="onClickHeader()">David's App</h1>
     <nav [ngClass]="{'menu-open': isNavOn}" >
-        <h1 *ngIf="isNavOn"> Mister Bitcoin</h1>
+        <h1 *ngIf="isNavOn">David's App</h1>
         <a (click)="onClickLink('')">Home Page</a>
-        <a (click)="onClickLink('contact')">Favorites</a>
+        <a (click)="onClickLink('favorites')">Favorites</a>
     </nav>
     <button class="btn-menu-toggle" [ngClass]="{'menu-open': isNavOn}" (click)=toggleMenu()>☰</button>
 </div>
