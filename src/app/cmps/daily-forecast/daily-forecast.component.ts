@@ -12,7 +12,7 @@ export class DailyForecastComponent implements OnInit {
   ngOnInit(): void {
   }
   getImageUrl(forecast:any){
-    return `../../assets/imgs/${forecast.Day.Icon}.png`
+    return `./assets/imgs/${forecast.Day.Icon}.png`
   }
 
 }
