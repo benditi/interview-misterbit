@@ -32,7 +32,13 @@
         //     background-color: transparent !important;
         // }
         button{
+            position: absolute;
+            right: 62px;
             font-size: 20px;
+            @media (min-width: $mobile-breakpoint){
+                position: unset;
+                right: unset;
+            }
         }
     }
     .cities-container{
