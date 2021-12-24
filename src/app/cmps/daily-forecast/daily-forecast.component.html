@@ -1,6 +1,0 @@
-<section class="daily-forecast flex column justify-center align-center">
-    <img [attr.src]="getImageUrl(forecast)" alt="">
-    <h1>{{forecast.Date | date: 'shortDate'}}</h1>
-    <div>{{forecast.DegreeDaySummary.Heating.Value}} {{forecast.DegreeDaySummary.Heating.Unit}}</div>
-    <div>{{forecast.Day.ShortPhrase}} </div>
-</section>
